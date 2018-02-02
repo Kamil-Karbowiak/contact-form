@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+			"ContactForm\\": "app/class"
+		}
+    },
+    "require": {
+        "twig/twig": "^2.4",
+        "phpmailer/phpmailer": "^6.0",
+        "html2text/html2text": "^4.1"
+    }
+}

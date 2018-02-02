@@ -1,0 +1,75 @@
+{{ include("header.php")}}
+    <div id="contactForm">
+        {% if message is not empty %}
+            <div class="alert alert-warning">
+                <p>{{message}}</p>
+            </div>
+        {% endif %}
+        <form method="post">
+            <div class="form-group">
+                <label for="userName">Imię</label>
+                <input type="text" class="form-control" name="userName"
+                    {% if fields['userName'] is not empty %}
+                        value="{{ fields['userName'] }}"
+                    {% endif %}
+                >
+                {% if errors['userName'] is not empty %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ errors['userName'] }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="userLastname">Nazwisko</label>
+                <input type="text" class="form-control" name="userLastName"
+                        {% if fields['userLastName'] is not empty %}
+                            value="{{ fields['userLastName'] }}"
+                        {% endif %}
+                >
+                {% if errors['userLastName'] is not empty %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ errors['userLastName'] }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="userPhoneNumber">Telefon kontaktowy</label>
+                <input type="text" class="form-control" name="userPhoneNumber"
+                        {% if fields['userPhoneNumber'] is not empty %}
+                            value="{{ fields['userPhoneNumber'] }}"
+                        {% endif %}
+                >
+                {% if errors['userPhoneNumber'] is not empty %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ errors['userPhoneNumber'] }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="userEmail">Adres e-mail</label>
+                <input type="text" class="form-control" name="userEmail"
+                        {% if fields['userEmail'] is not empty %}
+                            value="{{ fields['userEmail'] }}"
+                        {% endif %}
+                >
+                {% if errors['userEmail'] is not empty %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ errors['userEmail'] }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="userMessage">Treść wiadomości</label>
+                <textarea class="form-control" name="userMessage">{% if fields['userMessage'] is not empty %}{{ fields['userMessage'] }}{% endif %}</textarea>
+                {% if errors['userMessage'] is not empty %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ errors['userMessage'] }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <input type="submit" name="contactFormSubmit" class="btn btn-primary" value="Send">
+            </div>
+        </form>
+    </div>
+{{ include("footer.php")}}
